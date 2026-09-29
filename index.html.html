@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa | Business Economics & Data Analytics Portfolio</title>
+  
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            urdu: ['Noto Nastaliq Urdu', 'serif']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            emeraldAccent: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .dark .glass-nav {
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Subtle Animated Glow */
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); opacity: 0.35; }
+      50% { transform: scale(1.08); opacity: 0.65; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 8s infinite ease-in-out;
+    }
+
+    /* Text gradient helper */
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center space-x-2 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-emerald-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform duration-200">
+            M
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">Mustafa<span class="text-brand-500">.dev</span></span>
+            <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-widest -mt-1">ECONOMICS & TECH</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <a href="#about" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">About</a>
+          <a href="#skills" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Skills</a>
+          <a href="#projects" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Projects</a>
+          <a href="#education" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Education</a>
+          <a href="#contact" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Side Controls (Theme Toggle & CTA) -->
+        <div class="flex items-center space-x-3">
+          <!-- Dark / Light Mode Switcher -->
+          <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500/40 focus:outline-none transition-all">
+            <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
+          </button>
+
+          <!-- Quick Contact CTA -->
+          <a href="#contact" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-medium text-sm shadow-md hover:shadow-indigo-500/30 hover:opacity-95 active:scale-95 transition-all">
+            <span>Hire Me</span>
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+            <i id="menuIcon" class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-2 shadow-2xl transition-all">
+      <a href="#about" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70">About</a>
+      <a href="#skills" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70">Skills</a>
+      <a href="#projects" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70">Projects</a>
+      <a href="#education" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70">Education</a>
+      <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70">Contact</a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-link flex items-center justify-center space-x-2 w-full py-3 rounded-xl bg-brand-600 text-white font-medium shadow-md">
+          <span>Let's Discuss Opportunities</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 flex items-center overflow-hidden">
+    <!-- Ambient Background Glows -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-500/20 dark:bg-brand-600/25 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-emeraldAccent-500/15 dark:bg-emeraldAccent-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow" style="animation-delay: 3s;"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Welcome Pill Badge -->
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs sm:text-sm font-medium">
+            <span class="inline-block animate-bounce">👋</span>
+            <span>Welcome to my digital space</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent-500 animate-ping"></span>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              Hi, I'm <span class="gradient-text">Mustafa</span>
+            </h1>
+            <div class="h-10 sm:h-12 flex items-center justify-center lg:justify-start">
+              <span class="text-lg sm:text-2xl font-semibold text-slate-700 dark:text-slate-300">
+                A passionate <span id="typewriter" class="text-brand-600 dark:text-brand-400 border-r-2 border-brand-500 pr-1 animate-pulse"></span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Introduction Paragraph -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Bridging analytical business economics with modern data-driven methodologies and creative web technologies. Specializing in Python data workflows, economic analysis, and clean web applications based in Multan, Pakistan.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#projects" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-500/30 hover:-translate-y-0.5 transition-all inline-flex items-center space-x-2">
+              <span>Explore My Work</span>
+              <i class="fa-solid fa-arrow-trend-up text-xs"></i>
+            </a>
+            
+            <a href="#contact" class="px-6 py-3.5 rounded-xl glass-card text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 font-semibold text-sm hover:-translate-y-0.5 transition-all inline-flex items-center space-x-2 shadow-sm">
+              <i class="fa-regular fa-envelope text-brand-500"></i>
+              <span>Let's Connect</span>
+            </a>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="pt-4 flex items-center justify-center lg:justify-start space-x-5 text-slate-500 dark:text-slate-400">
+            <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500">Connect:</span>
+            
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-2.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/80 transition-colors">
+              <i class="fa-brands fa-github text-lg"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-2.5 rounded-lg hover:text-brand-500 hover:bg-slate-200/60 dark:hover:bg-slate-800/80 transition-colors">
+              <i class="fa-brands fa-linkedin text-lg"></i>
+            </a>
+            <button onclick="copyEmailToClipboard('contact.mustafa.dev@gmail.com')" aria-label="Copy Email" class="p-2.5 rounded-lg hover:text-emeraldAccent-500 hover:bg-slate-200/60 dark:hover:bg-slate-800/80 transition-colors group relative" title="Click to copy email">
+              <i class="fa-solid fa-at text-lg"></i>
+              <span class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[11px] bg-slate-900 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Copy Email</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Glow background effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-500 to-emeraldAccent-400 rounded-3xl blur-2xl opacity-20 transform -rotate-3 scale-95"></div>
+
+            <!-- Profile Summary Card -->
+            <div class="relative glass-card rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+              
+              <!-- Avatar & Status Header -->
+              <div class="flex items-center space-x-4">
+                <div class="relative">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-slate-900 to-indigo-900 p-1 flex items-center justify-center border-2 border-brand-500/50 shadow-inner">
+                    <span class="text-3xl sm:text-4xl select-none">👨‍💻</span>
+                  </div>
+                  <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emeraldAccent-500 border-2 border-white dark:border-slate-900 flex items-center justify-center" title="Open to projects">
+                    <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-1">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Mustafa</h3>
+                  <p class="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+                    <i class="fa-solid fa-location-dot text-red-500"></i>
+                    <span>Multan, Punjab, Pakistan</span>
+                  </p>
+                  <p class="text-[11px] font-semibold text-emerald-600 dark:text-emeraldAccent-400 bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">
+                    ● Available for Data & Web Projects
+                  </p>
+                </div>
+              </div>
+
+              <!-- Key Value Metrics -->
+              <div class="grid grid-cols-3 gap-3 text-center pt-2 border-t border-slate-200/70 dark:border-slate-800/80">
+                <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/50">
+                  <p class="text-2xl font-black text-brand-600 dark:text-brand-400">BS</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Economics</p>
+                </div>
+                <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/50">
+                  <p class="text-2xl font-black text-emerald-600 dark:text-emeraldAccent-400">100%</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Dedicated</p>
+                </div>
+                <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/50">
+                  <p class="text-2xl font-black text-purple-600 dark:text-purple-400">Python</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">& Web Dev</p>
+                </div>
+              </div>
+
+              <!-- Interactive mini terminal preview -->
+              <div class="rounded-xl bg-slate-900 text-slate-200 p-4 text-xs font-mono space-y-2 border border-slate-800">
+                <div class="flex items-center space-x-1.5 pb-1 border-b border-slate-800">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  <span class="text-[10px] text-slate-400 ml-2">mustafa_profile.py</span>
+                </div>
+                <p class="text-slate-400"># Current focus & goals</p>
+                <p><span class="text-purple-400">domain</span> = <span class="text-emerald-400">"Data & Economic Intelligence"</span></p>
+                <p><span class="text-purple-400">toolkit</span> = [<span class="text-amber-300">"Python"</span>, <span class="text-amber-300">"Pandas"</span>, <span class="text-amber-300">"Tailwind"</span>, <span class="text-amber-300">"JS"</span>]</p>
+                <p><span class="text-purple-400">status</span> = <span class="text-cyan-400">"Continuously Learning & Building"</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-slate-100/50 dark:bg-slate-900/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 dark:text-brand-400 uppercase">
+          Who I Am
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Merging Analytical Economics With Technical Execution
+        </h3>
+        <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-emerald-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Side Cards: What drives me -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="glass-card p-6 sm:p-8 rounded-2xl shadow-sm space-y-4">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-3">
+              <span class="p-2 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                <i class="fa-solid fa-chart-line text-lg"></i>
+              </span>
+              <span>Economic Acumen Meets Code</span>
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+              My academic background in <strong>Business Economics at Bahauddin Zakariya University (BZU) Multan</strong> paired with my foundational background in <strong>Computer Science (F.Sc CS)</strong> gives me a unique vantage point: I understand how markets, businesses, and incentives operate, and I have the technical appetite to build software and models that solve those challenges.
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+              Rather than viewing data as mere numbers, I view it as behavioral patterns, market signals, and actionable business strategies.
+            </p>
+          </div>
+
+          <!-- Highlights Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="glass-card p-5 rounded-2xl border-l-4 border-l-brand-500">
+              <i class="fa-solid fa-brain text-brand-500 text-xl mb-2"></i>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">Analytical Problem Solver</h5>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Rigorous hypothesis testing, quantitative reasoning, and statistical intuition.</p>
+            </div>
+            
+            <div class="glass-card p-5 rounded-2xl border-l-4 border-l-emeraldAccent-500">
+              <i class="fa-solid fa-laptop-code text-emeraldAccent-500 text-xl mb-2"></i>
+              <h5 class="font-bold text-slate-900 dark:text-white text-base">Modern Web Craft</h5>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Building fast, responsive, and aesthetically engaging user interfaces.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Fast Facts & Persona -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-3">
+              Fast Facts & Strengths
+            </h4>
+
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                  <h6 class="text-sm font-semibold text-slate-900 dark:text-white">Undergraduate Scholar</h6>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Pursuing BS Business Economics, maintaining high academic rigor and research interests.</p>
+                </div>
+              </li>
+
+              <li class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-database"></i>
+                </div>
+                <div>
+                  <h6 class="text-sm font-semibold text-slate-900 dark:text-white">Data Analysis Enthusiast</h6>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Working with tabular data, exploratory data analysis (EDA), and automated reporting.</p>
+                </div>
+              </li>
+
+              <li class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div>
+                  <h6 class="text-sm font-semibold text-slate-900 dark:text-white">Clean Code & UI Design</h6>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Enthusiastic about creating responsive, high-performance web experiences with modern CSS frameworks.</p>
+                </div>
+              </li>
+
+              <li class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div>
+                  <h6 class="text-sm font-semibold text-slate-900 dark:text-white">Multidisciplinary Vision</h6>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Dedicated to bringing technology into commerce and economic decision-making across Pakistan.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="#contact" class="inline-flex items-center space-x-2 text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">
+                <span>Interested in collaborating on a project?</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 dark:text-brand-400 uppercase">
+          Technical Arsenal
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Skills, Frameworks & Core Competencies
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          A blend of quantitative computation, economic evaluation, and frontend tools.
+        </p>
+        <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-emerald-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Category 1: Programming & Data Analytics -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+          
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl">
+              <i class="fa-brands fa-python"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Programming & Data</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Python, Analytics & Modeling</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Python (Pandas, Scripting)</span>
+                <span class="text-brand-600 dark:text-brand-400">80%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-600 to-indigo-500 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Excel Data Modeling & Formulas</span>
+                <span class="text-brand-600 dark:text-brand-400">88%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-600 to-indigo-500 h-2 rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Statistical Analysis & Econometrics</span>
+                <span class="text-brand-600 dark:text-brand-400">82%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-600 to-indigo-500 h-2 rounded-full" style="width: 82%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Data Visualization & Charts</span>
+                <span class="text-brand-600 dark:text-brand-400">78%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-600 to-indigo-500 h-2 rounded-full" style="width: 78%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Web Development & UI/UX -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Web Development</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Frontend & Responsive Layouts</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">HTML5 Semantic Structure</span>
+                <span class="text-emerald-600 dark:text-emerald-400">92%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">CSS3 & Tailwind Framework</span>
+                <span class="text-emerald-600 dark:text-emerald-400">86%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 86%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">JavaScript (ES6+ & DOM)</span>
+                <span class="text-emerald-600 dark:text-emerald-400">75%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Mobile-First UI/UX Design</span>
+                <span class="text-emerald-600 dark:text-emerald-400">85%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Tools & Business Acumen -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group md:col-span-2 lg:col-span-1">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Tools & Economics</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Workflow & Strategic Insight</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Business & Market Analysis</span>
+                <span class="text-purple-600 dark:text-purple-400">88%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Git Version Control & GitHub</span>
+                <span class="text-purple-600 dark:text-purple-400">76%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 76%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">VS Code & Dev Productivity</span>
+                <span class="text-purple-600 dark:text-purple-400">90%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <!-- Skill Item -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-slate-700 dark:text-slate-300">Research & Technical Writing</span>
+                <span class="text-purple-600 dark:text-purple-400">84%</span>
+              </div>
+              <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 84%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Badge Strip -->
+      <div class="mt-12 p-6 rounded-2xl glass-card flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-slate-700 dark:text-slate-300">
+        <span class="text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider text-[11px] mr-2">Key Tags:</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#Python3</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#BusinessEconomics</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#DataAnalytics</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#TailwindCSS</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#FinancialModeling</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#ResponsiveDesign</span>
+        <span class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/80">#GitWorkflow</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section id="projects" class="py-20 bg-slate-100/50 dark:bg-slate-900/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 dark:text-brand-400 uppercase">
+          Featured Portfolio
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Selected Projects & Case Studies
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          Real-world applications combining economic intelligence with modern programming.
+        </p>
+        <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-emerald-400 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex items-center justify-center gap-2 mb-12 flex-wrap">
+        <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-brand-600 text-white shadow-md shadow-brand-500/25" data-filter="all">
+          All Projects
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-slate-800" data-filter="data">
+          Data & Economics
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-slate-800" data-filter="web">
+          Web Applications
+        </button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: Economic Trends & Data Dashboard -->
+        <div class="project-card glass-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group" data-category="data">
+          <!-- Visual Header -->
+          <div class="h-48 bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-800 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="flex justify-between items-start relative z-10">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Data Analytics</span>
+              <div class="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+            </div>
+            <div class="relative z-10">
+              <span class="text-xs text-indigo-300 font-mono">01 // Economic Analysis</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Macro Economic Trends Dashboard</h4>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              An interactive visual analysis tool designed to track inflation trends, CPI metrics, and exchange rate volatility for Pakistan's market using Python and statistical formulas.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Pandas</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Chart.js</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Economics</span>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <button onclick="openProjectModal('Macro Economic Trends Dashboard', 'A Python-powered analytical engine that aggregates and visualizes critical macroeconomic indicators. It compares historical inflation trends against monetary policy shifts, helping formulate data-driven financial forecasts.', ['Python', 'Pandas', 'Excel Models', 'Matplotlib / ChartJS'], 'https://github.com')" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline inline-flex items-center space-x-1.5">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-900 dark:hover:text-white text-sm" title="View Source">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Student Record & Performance Management -->
+        <div class="project-card glass-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group" data-category="web">
+          <!-- Visual Header -->
+          <div class="h-48 bg-gradient-to-tr from-slate-900 via-teal-950 to-slate-800 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="flex justify-between items-start relative z-10">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-brand-500/20 text-brand-400 border border-brand-500/30">Web App</span>
+              <div class="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+                <i class="fa-solid fa-users-rectangle"></i>
+              </div>
+            </div>
+            <div class="relative z-10">
+              <span class="text-xs text-teal-300 font-mono">02 // Full Workflow</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Academic Performance Portal</h4>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A comprehensive student performance and attendance tracking tool providing automatic GPA projection, grade breakdown, and data export features.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">JavaScript</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">HTML5/CSS3</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">LocalStorage</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">UI/UX</span>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <button onclick="openProjectModal('Academic Performance Portal', 'A lightweight responsive portal allowing academic departments or students to record test grades, assess semester performance trends, and calculate weighted GPAs in real-time without cumbersome setups.', ['Modern JS', 'Tailwind UI', 'Data Export CSV', 'Offline Storage'], 'https://github.com')" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center space-x-1.5">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-900 dark:hover:text-white text-sm" title="View Source">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Business Economics Market Research Platform -->
+        <div class="project-card glass-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group" data-category="data">
+          <!-- Visual Header -->
+          <div class="h-48 bg-gradient-to-tr from-slate-900 via-purple-950 to-slate-800 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#a855f7_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="flex justify-between items-start relative z-10">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-500/20 text-purple-400 border border-purple-500/30">Analytics & Research</span>
+              <div class="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+              </div>
+            </div>
+            <div class="relative z-10">
+              <span class="text-xs text-purple-300 font-mono">03 // Research Tool</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">Agri-Commodities Pricing Tracker</h4>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Focused on the regional agricultural belt of South Punjab, comparing wholesale grain and cotton spot rates with historical weather and input cost fluctuations.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Data Cleansing</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Python Scripts</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Econometrics</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Excel</span>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <button onclick="openProjectModal('Agri-Commodities Pricing Tracker', 'An econometric research model gathering mandi spot prices across Multan and Southern Punjab districts to calculate price margins, producer vs middleman margins, and price volatility indicators.', ['Econometric Modeling', 'Python Data Wrangling', 'Multan Regional Study', 'Statistical Summary'], 'https://github.com')" class="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline inline-flex items-center space-x-1.5">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-900 dark:hover:text-white text-sm" title="View Source">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Interactive Web Utility & Calculator -->
+        <div class="project-card glass-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group" data-category="web">
+          <!-- Visual Header -->
+          <div class="h-48 bg-gradient-to-tr from-slate-900 via-blue-950 to-slate-800 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="flex justify-between items-start relative z-10">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Financial Utility</span>
+              <div class="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+            </div>
+            <div class="relative z-10">
+              <span class="text-xs text-cyan-300 font-mono">04 // Finance Tool</span>
+              <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Microfinance ROI & Loan Calculator</h4>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A swift web-based financial calculator that calculates compounding interest, amortization schedules, and present/future values for personal business budgeting.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">JavaScript</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-200/60 dark:bg-slate-800 text-[11px] font-medium text-slate-700 dark:text-slate-300">Financial Math</span>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <button onclick="openProjectModal('Microfinance ROI & Loan Calculator', 'An accessible client-side financial simulation engine helping small entrepreneurs understand loan interest payments, principal amortization, and payback duration with clear dynamic breakdown charts.', ['Vanilla JavaScript', 'Amortization Algorithm', 'Responsive Design', 'Financial Economics'], 'https://github.com')" class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline inline-flex items-center space-x-1.5">
+                <span>View Details</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-900 dark:hover:text-white text-sm" title="View Source">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education & Journey Section -->
+  <section id="education" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 dark:text-brand-400 uppercase">
+          Academic Foundation
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Education & Learning Milestones
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          The continuous progression from computer science foundations to modern business economics.
+        </p>
+        <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-emerald-400 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="max-w-3xl mx-auto relative pl-6 sm:pl-8 border-l-2 border-slate-200 dark:border-slate-800 space-y-12">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <!-- Timeline Marker Pin -->
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-600 border-4 border-slate-50 dark:border-slate-950 flex items-center justify-center text-white text-[10px] shadow">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-sm space-y-2 group-hover:border-brand-500/50 transition-colors">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                Undergraduate Degree
+              </span>
+              <span class="text-xs font-semibold text-slate-400">In Progress</span>
+            </div>
+            
+            <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              BS Business Economics
+            </h4>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-300">
+              Bahauddin Zakariya University (BZU), Multan
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed pt-1">
+              Developing a rigorous understanding of Micro & Macroeconomics, Financial Economics, Econometrics, Quantitative Business Modeling, and Market Dynamics. Applying computing techniques to solve real-world fiscal problems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative group">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-emeraldAccent-500 border-4 border-slate-50 dark:border-slate-950 flex items-center justify-center text-white text-[10px] shadow">
+            <i class="fa-solid fa-desktop"></i>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-sm space-y-2 group-hover:border-emeraldAccent-500/50 transition-colors">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                Intermediate
+              </span>
+              <span class="text-xs font-semibold text-slate-400">Completed</span>
+            </div>
+            
+            <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              F.Sc Computer Science (ICS)
+            </h4>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-300">
+              Intermediate College Education
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed pt-1">
+              Built core computational intuition: algorithmic thinking, logic gates, object-oriented concepts, relational databases, and mathematics that forms the backbone for data modeling.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative group">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-purple-600 border-4 border-slate-50 dark:border-slate-950 flex items-center justify-center text-white text-[10px] shadow">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-sm space-y-2 group-hover:border-purple-500/50 transition-colors">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                Specialized Training
+              </span>
+              <span class="text-xs font-semibold text-slate-400">Continuous Mastery</span>
+            </div>
+            
+            <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              Data Analytics & Python Development Tracks
+            </h4>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-300">
+              Online Certifications & Self-Directed Projects
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed pt-1">
+              Active self-learning in Python (NumPy, Pandas), modern web standard technologies, and financial data modeling methodologies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-slate-100/50 dark:bg-slate-900/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 dark:text-brand-400 uppercase">
+          Get in Touch
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Let's Discuss Projects & Opportunities
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          Have an economic data project, web inquiry, or just want to say salam? Send me a message!
+        </p>
+        <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-emerald-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Contact Information Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-card p-6 sm:p-8 rounded-2xl space-y-6 shadow-sm">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">Contact Details</h4>
+            
+            <div class="space-y-4">
+              <!-- Email Card -->
+              <div class="flex items-start space-x-4 p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/50">
+                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 text-base">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Direct Email</p>
+                  <p class="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">contact.mustafa.dev@gmail.com</p>
+                  <button onclick="copyEmailToClipboard('contact.mustafa.dev@gmail.com')" class="text-[11px] text-brand-600 dark:text-brand-400 hover:underline mt-0.5 inline-block">
+                    Click to copy address
+                  </button>
+                </div>
+              </div>
+
+              <!-- Location Card -->
+              <div class="flex items-start space-x-4 p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/50">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 text-base">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Current Location</p>
+                  <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">Multan, Punjab, Pakistan</p>
+                  <p class="text-[11px] text-slate-500">PKT (UTC+5) Timezone</p>
+                </div>
+              </div>
+
+              <!-- Status Card -->
+              <div class="flex items-start space-x-4 p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/50">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0 text-base">
+                  <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Collaboration</p>
+                  <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">Open for Freelance & Research</p>
+                  <p class="text-[11px] text-slate-500">Fast response within 24 hours</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Urdu quote card -->
+            <div class="p-4 rounded-xl border border-brand-500/20 bg-brand-500/5 text-right font-urdu">
+              <p class="text-sm text-slate-700 dark:text-slate-300 leading-loose">
+                "تعلیم، تدبر اور جدید علوم کا باہمی ربط ہی کامیابی کی بنیاد ہے۔"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="lg:col-span-7">
+          <div class="glass-card p-6 sm:p-8 rounded-2xl shadow-sm">
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Send a Direct Message</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Fill in the form below and I'll get back to you promptly.</p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="userName" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your Name *</label>
+                  <input type="text" id="userName" required placeholder="e.g. Ahmad Khan" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white placeholder-slate-400 transition-all">
+                </div>
+
+                <div>
+                  <label for="userEmail" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your Email *</label>
+                  <input type="email" id="userEmail" required placeholder="name@domain.com" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white placeholder-slate-400 transition-all">
+                </div>
+              </div>
+
+              <div>
+                <label for="userSubject" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Subject *</label>
+                <input type="text" id="userSubject" required placeholder="e.g. Web Development or Economics Project" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white placeholder-slate-400 transition-all">
+              </div>
+
+              <div>
+                <label for="userMessage" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your Message *</label>
+                <textarea id="userMessage" required rows="4" placeholder="Hello Mustafa, I'd like to discuss..." class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white placeholder-slate-400 resize-none transition-all"></textarea>
+              </div>
+
+              <button type="submit" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 via-indigo-600 to-emerald-600 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 hover:shadow-indigo-500/40 hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center space-x-2">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-slate-950 py-12 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Brand & Tagline -->
+        <div class="space-y-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start space-x-2">
+            <span class="text-xl font-black text-slate-900 dark:text-white tracking-tight">Mustafa<span class="text-brand-500">.dev</span></span>
+            <span class="text-xs px-2 py-0.5 rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono">Multan</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Business Economics &bull; Data Analytics &bull; Web Development
+          </p>
+          <!-- Bilingual Urdu tagline -->
+          <p class="text-sm font-urdu text-brand-600 dark:text-brand-400 pt-1">
+            علم، معیشت اور ٹیکنالوجی کا حسین سنگم
+          </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex items-center space-x-4 text-slate-500 dark:text-slate-400 text-base">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="p-2 rounded-lg hover:text-brand-600 transition-colors">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2 rounded-lg hover:text-brand-600 transition-colors">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <button onclick="copyEmailToClipboard('contact.mustafa.dev@gmail.com')" aria-label="Copy Email" class="p-2 rounded-lg hover:text-brand-600 transition-colors">
+            <i class="fa-solid fa-envelope"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-200/60 dark:border-slate-800/60 text-center flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+        <p>&copy; <span id="currentYear"></span> Mustafa. Built with focus & pride.</p>
+        <div class="flex items-center space-x-4">
+          <a href="#hero" class="hover:text-brand-600 transition-colors">Back to top</a>
+          <span>&bull;</span>
+          <span>Crafted in Multan, Pakistan</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-brand-600 text-white shadow-xl opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-500 hover:scale-110 active:scale-95">
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xl border border-white/20 transform scale-95 transition-transform duration-300 relative">
+      <button onclick="closeProjectModal()" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="space-y-1">
+        <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">Project Overview</span>
+        <h3 id="modalTitle" class="text-2xl font-bold text-slate-900 dark:text-white"></h3>
+      </div>
+
+      <p id="modalDesc" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+
+      <div>
+        <h5 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Technologies Used</h5>
+        <div id="modalTags" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end space-x-3">
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+          Close
+        </button>
+        <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-xl bg-brand-600 text-white text-xs font-semibold shadow hover:bg-brand-500 inline-flex items-center space-x-1.5">
+          <span>Repository</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Toast Notification -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 z-50 glass-card px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 text-sm opacity-0 pointer-events-none transition-all duration-300 border-l-4 border-l-emerald-500">
+    <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center flex-shrink-0">
+      <i class="fa-solid fa-check text-xs"></i>
+    </div>
+    <span id="toastMsg" class="font-medium text-slate-800 dark:text-slate-200"></span>
+  </div>
+
+  <script>
+    // Set Dynamic Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const htmlElement = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('mustafa_portfolio_theme');
+      if (savedTheme === 'light') {
+        htmlElement.classList.remove('dark');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        htmlElement.classList.add('dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = htmlElement.classList.toggle('dark');
+      if (isDark) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('mustafa_portfolio_theme', 'dark');
+        showToast('Switched to Dark Mode 🌙');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('mustafa_portfolio_theme', 'light');
+        showToast('Switched to Light Mode ☀️');
+      }
+    });
+
+    initTheme();
+
+    // Typewriter Effect
+    const words = [
+      "Business Economics Student",
+      "Aspiring Data Analyst",
+      "Python & Web Developer",
+      "Quantitative Thinker"
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter');
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typingSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typingSpeed = 1800; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typingSpeed = 400; // Pause before typing next
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+
+    // Mobile Menu Handler
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      if (isHidden) {
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      } else {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      }
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      });
+    });
+
+    // Project Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/25');
+          b.classList.add('bg-white', 'dark:bg-slate-800/80', 'text-slate-600', 'dark:text-slate-300');
+        });
+
+        btn.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/25');
+        btn.classList.remove('bg-white', 'dark:bg-slate-800/80', 'text-slate-600', 'dark:text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Project Details Modal
+    const projectModal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalTags = document.getElementById('modalTags');
+    const modalLink = document.getElementById('modalLink');
+
+    function openProjectModal(title, description, tags, link) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = description;
+      modalLink.href = link || '#';
+
+      modalTags.innerHTML = '';
+      tags.forEach(tag => {
+        const badge = document.createElement('span');
+        badge.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-brand-500/10 text-brand-600 dark:text-brand-400';
+        badge.textContent = tag;
+        modalTags.appendChild(badge);
+      });
+
+      projectModal.classList.remove('opacity-0', 'pointer-events-none');
+      const inner = projectModal.querySelector('.transform');
+      if (inner) {
+        inner.classList.remove('scale-95');
+        inner.classList.add('scale-100');
+      }
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.add('opacity-0', 'pointer-events-none');
+      const inner = projectModal.querySelector('.transform');
+      if (inner) {
+        inner.classList.remove('scale-100');
+        inner.classList.add('scale-95');
+      }
+    }
+
+    // Close modal on background click
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+
+    // Toast Helper
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = message;
+      
+      toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      toast.classList.add('translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+        toast.classList.remove('translate-y-0');
+      }, 3500);
+    }
+
+    // Robust Clipboard Copy Function
+    function copyEmailToClipboard(email) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('Email copied to clipboard: ' + email);
+      } catch (err) {
+        showToast('Address: ' + email);
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Contact Form Handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerHTML;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-sm"></i> <span>Sending...</span>';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        document.getElementById('contactForm').reset();
+        showToast('شکریہ! Message sent successfully. I will get back to you soon.');
+      }, 1000);
+    }
+
+    // Scroll-to-Top Button Visibility
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
